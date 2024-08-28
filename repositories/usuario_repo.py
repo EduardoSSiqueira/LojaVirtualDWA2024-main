@@ -28,8 +28,8 @@ class UsuarioRepo:
                         usuario.endereco,
                         usuario.telefone,
                         usuario.email,
-                        usuario.senha,
-                        usuario.perfil
+                        usuario.perfil,
+                        usuario.senha                        
                     ),
                 )
                 if cursor.rowcount > 0:
@@ -101,7 +101,7 @@ class UsuarioRepo:
         try:
             with obter_conexao() as conexao:
                 cursor = conexao.cursor()
-                tupla = cursor.execute(SQL_OBTER_QUANTIDADE_POR_PERFIL, (perfil,) ).fetchone()
+                tupla = cursor.execute(SQL_OBTER_QUANTIDADE_POR_PERFIL, (perfil,)).fetchone()
                 return int(tupla[0])
         except sqlite3.Error as ex:
             print(ex)
