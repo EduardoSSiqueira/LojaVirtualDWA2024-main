@@ -90,6 +90,7 @@ class PedidoRepo:
         except sqlite3.Error as ex:
             print(ex)
             return False
+        
     @classmethod
     def atualizar_valor_total(
         cls, id: int, valor_total: float = 0
