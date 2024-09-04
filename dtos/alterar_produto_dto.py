@@ -1,5 +1,4 @@
 from pydantic import BaseModel, field_validator
-from datetime import date, datetime, timedelta
 
 from util.validators import *
 
@@ -7,26 +6,25 @@ from util.validators import *
 class AlterarProdutoDto(BaseModel):
     id: int
     nome: str
-    preco: float
+    preco: float    
     descricao: str
     estoque: int
 
-
     @field_validator("id")
     def validar_id(cls, v):
-        msg = is_size_between(v, "id", 0)
+        msg = is_greater_than(v, "Id", 0)
         if msg: raise ValueError(msg)
         return v
 
     @field_validator("nome")
     def validar_nome(cls, v):
-        msg = is_size_between(v, "Nome", 2,128)
+        msg = is_size_between(v, "Nome", 2, 128)
         if msg: raise ValueError(msg)
         return v
 
     @field_validator("preco")
     def validar_preco(cls, v):
-        msg = is_in_range(v, "Preço", 0.0, 1000000.0)
+        msg = is_in_range(v, "Preço", 0.0, 100000.0)
         if msg: raise ValueError(msg)
         return v
 

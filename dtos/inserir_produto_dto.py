@@ -4,7 +4,7 @@ from datetime import date, datetime, timedelta
 from util.validators import *
 
 
-class InserirProdutoDTO(BaseModel):
+class InserirProdutoDto(BaseModel):
     nome: str
     preco: float
     descricao: str
