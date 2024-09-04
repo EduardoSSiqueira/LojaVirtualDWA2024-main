@@ -4,7 +4,7 @@ from datetime import date, datetime, timedelta
 from util.validators import *
 
 
-class ExcluirProdutoDto(BaseModel):
+class IdProdutoDto(BaseModel):
     id_produto: int
 
     @field_validator("id_produto")

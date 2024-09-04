@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from fastapi.responses import HTMLResponse, JSONResponse
 
-from dtos.excluir_produto_dto import ExcluirProdutoDTO
+from dtos.id_produto_dto import ExcluirProdutoDTO
 from dtos.inserir_produto_dto import InserirProdutoDTO
 from dtos.problem_detail_dto import ProblemDetailsDto
 from models.produto_model import Produto
