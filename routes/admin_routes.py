@@ -61,4 +61,5 @@ async def obter_pedidos(id_pedido: int = Path(..., title="Id do Pedido", ge=1)):
 @router.get("/obter_pedidos_por_estado{estado}")
 async def obter_pedidos_por_estado(estado: EstadoPedido = Path(..., title="Estado do Pedido")):
     pedidos = PedidoRepo.obter_pedido_por_estado(estado.value)
+    return pedidos
    
