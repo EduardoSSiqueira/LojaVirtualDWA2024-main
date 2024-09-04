@@ -1,4 +1,4 @@
-# Loja Virtual de Eduardo Siqueira Alterado
+# Loja Virtual de Eduardo Siqueira Alterado fdfdf
 
 Loja virtual desenvolvida durante a disciplina de Desenvolvimento Web Avançado no Ifes Cachoeiro.
 
