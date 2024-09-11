@@ -12,6 +12,8 @@ class Usuario:
     endereco: Optional[str] = None
     telefone: Optional[str] = None
     email: Optional[str] = None
-    senha: Optional[str] = None
     perfil: Optional[int] = None
+    senha: Optional[str] = None
+    # usar o campo abaixo somente se 
+    # for autenticação por cookie
     token: Optional[str] = None

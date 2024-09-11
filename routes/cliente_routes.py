@@ -1,3 +1,4 @@
+
 from datetime import datetime, timedelta
 from fastapi import APIRouter, Form, HTTPException, Path, Query, Request, status
 from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
@@ -13,7 +14,7 @@ from repositories.usuario_repo import UsuarioRepo
 from repositories.item_pedido_repo import ItemPedidoRepo
 from repositories.pedido_repo import PedidoRepo
 from repositories.produto_repo import ProdutoRepo
-from util.auth import conferir_senha, obter_hash_senha
+from util.auth_cookie import conferir_senha, obter_hash_senha
 from util.cookies import (
     adicionar_mensagem_alerta,
     adicionar_mensagem_erro,
@@ -350,6 +351,7 @@ async def post_reduzir_item(request: Request, id_produto: int = Form(0)):
     PedidoRepo.atualizar_valor_total(pedido_carrinho.id)
     return response
 
+
 @router.post("/post_remover_item", response_class=RedirectResponse)
 async def post_remover_item(request: Request, id_produto: int = Form(0)):
     if not id_produto:
@@ -378,7 +380,6 @@ async def post_remover_item(request: Request, id_produto: int = Form(0)):
     adicionar_mensagem_sucesso(response, "Item excluído com sucesso.")
     PedidoRepo.atualizar_valor_total(pedido_carrinho.id)
     return response
-
 
 
 @router.get("/pedidoconfirmado/{id_pedido:int}", response_class=HTMLResponse)
@@ -414,6 +415,7 @@ async def get_detalhespedido(
         "pages/detalhespedido.html",
         {"request": request, "pedido": pedido},
     )
+
 
 @router.post("/post_cancelar_pedido", response_class=RedirectResponse)
 async def post_cancelar_pedido(request: Request, id_pedido: int = Form(0)):
